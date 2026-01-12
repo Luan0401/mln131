@@ -20,11 +20,11 @@ const Footer = () => {
             <span className="text-red-900">NAM</span>
           </h2>
           <p className="font-serif italic text-lg max-w-2xl mx-auto text-black/70 backdrop-blur-sm bg-white/30 p-4">
-            &ldquo;Văn hóa soi đường cho quốc dân đi. Văn hóa phải sửa đổi thói tham nhũng, lười biếng, phù hoa, xa xỉ; phải làm cho ai nấy có tinh thần vì nước quên mình, vì lợi ích chung mà quên lợi ích riêng; có tinh thần cần, kiệm, liêm, chính.&rdquo;
+            &ldquo;Đảng ta là một Đảng cầm quyền. Mỗi đảng viên và cán bộ phải thật sự thấm nhuần đạo đức cách mạng, thật sự cần kiệm liêm chính, chí công vô tư. Phải giữ gìn Đảng ta thật trong sạch, phải xứng đáng là người lãnh đạo, là người đầy tớ thật trung thành của nhân dân.&rdquo;
           </p>
           <div className="mt-4 flex justify-center items-center">
             <div className="w-6 h-[1px] bg-red-900"></div>
-            <p className="mx-3 text-sm font-sub">TƯ TƯỞNG HỒ CHÍ MINH</p>
+            <p className="mx-3 text-sm font-sub">Chủ tịch Hồ Chí Minh nói về Đảng và đảng viên</p>
             <div className="w-6 h-[1px] bg-red-900"></div>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Footer = () => {
               <div className="w-12 h-[1px] bg-red-900 mt-2"></div>
             </div>
             <p className="text-black/80 text-sm leading-relaxed font-serif">
-              Nền tảng giáo dục về xây dựng văn hóa, đạo đức và con người Việt Nam theo tư tưởng Hồ Chí Minh. Khám phá giá trị nền tảng, mục tiêu và động lực phát triển bền vững.
+              Dưới sự dẫn dắt của Đảng Cộng sản Việt Nam và tư tưởng Hồ Chí Minh, văn hóa không chỉ là nền tảng tinh thần mà còn là sức mạnh nội sinh, là mục tiêu và động lực để xây dựng một Việt Nam hùng cường, dân chủ và nhân văn.
             </p>
           </div>
           
