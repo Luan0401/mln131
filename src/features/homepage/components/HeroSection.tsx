@@ -3,20 +3,20 @@ import HeroSectionClient from './HeroSectionClient';
 
 const featuredItems = [
   {
-    image: "/vn2.jpg",
-    title: "XÂY DỰNG & PHÁT TRIỂN VĂN HÓA, CON NGƯỜI",   
-    subtitle: "Vì hạnh phúc nhân dân"
+    image: "/d2.jpg",
+    title: "SỰ RA ĐỜI CỦA ĐẢNG CỘNG SẢN VIỆT NAM",   
+    subtitle: "Mốc son chói lọi, mở lối độc lập"
   },
   {
-    image: "/vn3.jpg",
-    title: "XÂY DỰNG ĐẠO ĐỨC CÁCH MẠNG",
-    subtitle: "Gương mẫu, liêm khiết"
+    image: "/d3.jpg",
+    title: "NGỌN ĐUỐC CÁCH MẠNG VIỆT NAM",
+    subtitle: "Người dẫn lối, rạng rỡ sự nghiệp Đảng."
   }
 ];
 
 const heroSEOContent = {
-  heading: "Tư-Tưởng HCM",
-  description: "Phần IV – XÂY DỰNG VĂN HÓA, ĐẠO ĐỨC, CON NGƯỜI VIỆT NAM HIỆN NAY THEO TƯ TƯỞNG HỒ CHÍ MINH",
+  heading: "VIỆT NAM LỊCH SỬ ĐẢNG",
+  description: "Điểm tựa lịch sử cho tầm nhìn thời đại.",
   links: [
     { text: "Khám phá", url: "/game" },
     { text: "Học tập", url: "/noidung" }

@@ -69,18 +69,18 @@ const Navbar = () => {
       >
         <div className="container mx-auto py-6 px-50 border-b border-black/40 relative">
           <div className="flex items-center justify-between text-center relative z-10">
-            <p className="text-xs uppercase tracking-widest mb-3 font-sub">Văn Hóa và Đạo Đức</p>
+            <p className="text-xs uppercase tracking-widest mb-3 font-sub">ĐẢNG CỘNG SẢN VIỆT NAM</p>
 
             {/* Centered Title */}
             <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 group">
               <h1 className="font-primary text-4xl sm:text-5xl tracking-wider uppercase text-center inline-block relative">
-                <span className="text-black">VIET</span>
-                <span className="text-red-900">NAM</span>
-                <span className="absolute -top-2 -right-2 text-red-900 text-xs">®</span>
+                <span className="text-black"></span>
+                <span className="text-red-900">VIỆT NAM</span>
+                <span className="absolute -top-2 -right-2 text-red-900 text-xs"></span>
               </h1>
             </Link>
 
-            <p className="text-xs uppercase tracking-widest mt-3 font-sub">THEO TƯ TƯỞNG HỒ CHÍ MINH</p>
+            <p className="text-xs uppercase tracking-widest mt-3 font-sub">CHỦ NGHĨA XÃ HỘI KHOA HỌC</p>
           </div>
         </div>
       </motion.div>
@@ -150,7 +150,7 @@ const Navbar = () => {
              {/* Group 4 Text */}
             <div className="flex items-center">
               <span className="text-xs font-sub text-black/70 tracking-widest uppercase">
-                Presented by Group 3
+                Presented by Group 1
               </span>
             </div>
             {/* Vietnamese Logo */}
@@ -223,7 +223,7 @@ const Navbar = () => {
                 {/* Group 4 Text */}
                 <div className="flex items-center">
                   <span className="text-xs font-sub text-black/70 tracking-widest uppercase">
-                    Presented by Group 3
+                    Presented by Group 1
                   </span>
                 </div>
               </div>

@@ -97,7 +97,7 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
                 >
-                  <h2 className="font-sub tracking-[0.5em] uppercase text-[#333]/80 text-sm">The HCM201</h2>
+                  <h2 className="font-sub tracking-[0.5em] uppercase text-[#333]/80 text-sm">MLN131</h2>
                   <motion.div 
                     className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#ec1e1e] to-transparent mt-1"
                     animate={{ scaleX: [1, 1.05, 1], opacity: [0.7, 1, 0.7] }}
@@ -117,18 +117,18 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
                     scale={[1, 1.02, 1]}
                     animationDuration={4}
                   >
-                    {heroSEOContent.heading.split(' ')[0]}
+                    {heroSEOContent.heading.split(' ').slice(0, 2).join(' ')}
                   </AnimatedText>
                   <AnimatedText
                     as="span" 
-                    className="font-primary text-5xl md:text-6xl xl:text-7xl tracking-tight text-[#111] block -mt-2"
+                    className="font-primary text-5xl md:text-6xl xl:text-5xl tracking-tight text-[#111] block mt-4"
                     textColor="#111"
                     shadowColor="236,30,30"
                     shadowIntensity={0.3}
                     scale={[1, 1.02, 1]}
                     animationDuration={4}
                   >
-                    {heroSEOContent.heading.split(' ')[1]}
+                    {heroSEOContent.heading.split(' ').slice(2).join(' ')}
                   </AnimatedText>
                   
 
@@ -144,7 +144,7 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
               </FadeUp>
               
               <FadeUp >
-                <p className="font-sub text-[#333]/80 uppercase text-sm tracking-wider mb-8 max-w-md">
+                <p className="font-sub text-[#333]/80 uppercase text-sm tracking-wider mb-7 max-w-md">
                   {heroSEOContent.description.split('.')[0]}
                 </p>
               </FadeUp>

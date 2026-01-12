@@ -51,7 +51,7 @@ const SubHeroSection = () => {
               muted
               style={{ objectFit: 'cover' }}
             >
-              <source src="/banner.mp4" type="video/mp4" />
+              <source src="/dang.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
@@ -92,7 +92,7 @@ const SubHeroSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                XÂY DỰNG VĂN HÓA, ĐẠO ĐỨC, CON NGƯỜI
+                THÀNH LẬP ĐẢNG CỘNG SẢN VIỆT NAM
               </MotionH2>
               <MotionDiv
                 className="flex items-center"
@@ -101,7 +101,7 @@ const SubHeroSection = () => {
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <div className="h-[1px] w-12 bg-white mr-3"></div>
-                <p className="font-serif italic text-white/90">Xây dựng văn hóa, đạo đức, con người theo tư tưởng Hồ Chí Minh là nhiệm vụ chiến lược, cấp bách.</p>
+                <p className="font-serif italic text-white/90">Sự kiện có ý nghĩa lịch sử vô cùng trọng đại, mở ra trang sử mới của dân tộc Việt Nam</p>
               </MotionDiv>
             </FadeUp>
           </FadeUp>
@@ -122,7 +122,8 @@ const SubHeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                Xây dựng văn hóa, đạo đức, con người theo <span className="text-red-900">Tư tưởng HCM</span>
+                Thành lập ĐẢNG CỘNG SẢN VIỆT NAM
+               <span className="text-red-900">  3-2-1930</span>
               </MotionH2>
               <MotionP
                 className="font-serif text-black/70 mb-2 leading-relaxed"
@@ -130,7 +131,7 @@ const SubHeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
               >
-                {"Văn hóa là nền tảng, mục tiêu và động lực; con người là trung tâm, chủ thể phát triển."}
+                {"Hội nghị hợp nhất các tổ chức Cộng sản thành lập Đảng Cộng sản Việt Nam đã họp ở bán đảo Cửu Long, thuộc Hồng Kông (Trung Quốc) dưới sự chủ trì của đồng chí Nguyễn Ái Quốc thay mặt cho Quốc tế Cộng sản."}
               </MotionP>
 
            
@@ -152,13 +153,13 @@ const SubHeroSection = () => {
                   className="font-primary text-2xl md:text-3xl text-[var(--dark-red)] mb-4"
                   shadowIntensity={0.6}
                 >
-                  THỰC TRẠNG VÀ YÊU CẦU
+                  NGỌN ĐUỐC CÁCH MẠNG VIỆT NAM
                 </AnimatedText>
 
-                <p className="font-sub text-sm uppercase tracking-widest mb-4">Thành tựu và hạn chế</p>
+                <p className="font-sub text-sm uppercase tracking-widest mb-4"> Hồ Chí Minh</p>
                 <div className="h-[1px] w-16 bg-black/30 mx-auto mb-4"></div>
                 <p className="font-serif italic text-black/70 mb-6">
-                  Thành quả chưa tương xứng; suy thoái tư tưởng, đạo đức còn diễn ra. Cần coi xây dựng văn hóa và con người là nhiệm vụ cấp bách.
+                  Đoàn kết là một truyền thống cực kỳ quý báu của Đảng và của dân ta. Các đồng chí từ Trung ương đến các chi bộ cần phải giữ gìn sự đoàn kết nhất trí của Đảng như giữ gìn con ngươi của mắt mình.
                 </p>
                   <Button
                     variant="double"
