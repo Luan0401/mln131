@@ -33,7 +33,7 @@ const ChatInput = ({ onSendMessage, disabled = false }: ChatInputProps) => {
         </div>
         <Input
           className="bg-[#f8f4e8] border-[#600]/30 focus-visible:ring-[#600]/30 rounded-none pl-9 font-serif placeholder:text-gray-500 text-sm"
-          placeholder="Viết câu hỏi của bạn cho AI-HCM201..."
+          placeholder="Viết câu hỏi của bạn cho AI-MLN131..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
