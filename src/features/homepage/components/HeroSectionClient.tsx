@@ -110,7 +110,7 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
                 <h1 className="mb-6 relative">
                   <AnimatedText
                     as="span" 
-                    className="font-primary text-5xl md:text-6xl xl:text-7xl tracking-tight text-[#111] block"
+                    className="font-primary text-5xl md:text-6xl xl:text-5xl tracking-tight text-[#111] block"
                     textColor="#111"
                     shadowColor="236,30,30"
                     shadowIntensity={0.3}
@@ -121,7 +121,7 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
                   </AnimatedText>
                   <AnimatedText
                     as="span" 
-                    className="font-primary text-5xl md:text-6xl xl:text-5xl tracking-tight text-[#111] block mt-4"
+                    className="font-primary text-5xl md:text-6xl xl:text-4xl tracking-tight text-[#111] block mt-4"
                     textColor="#111"
                     shadowColor="236,30,30"
                     shadowIntensity={0.3}
@@ -129,6 +129,7 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
                     animationDuration={4}
                   >
                     {heroSEOContent.heading.split(' ').slice(2).join(' ')}
+                    
                   </AnimatedText>
                   
 
@@ -144,9 +145,17 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
               </FadeUp>
               
               <FadeUp >
-                <p className="font-sub text-[#333]/80 uppercase text-sm tracking-wider mb-7 max-w-md">
-                  {heroSEOContent.description.split('.')[0]}
-                </p>
+                <div className="font-sub text-[#333]/80 uppercase text-sm tracking-wider mb-7 max-w-md flex flex-col gap-3">
+                  {heroSEOContent.description
+                    .split('.')
+                    .filter((item) => item.trim() !== "") 
+                    .map((text, index) => (
+                      <span key={index} className="block">
+                        {text.trim()}.
+                      </span>
+                    ))
+                  }
+                </div>
               </FadeUp>
               
               <FadeUp >
@@ -314,14 +323,14 @@ const HeroSectionClient = ({ featuredItems, heroSEOContent }: HeroSectionClientP
                   className="font-serif italic text-xs md:text-sm text-[#111]/70"
                   whileHover={{ color: "#111" }}
                 >
-                  Xây dựng văn hóa, đạo đức, con người Việt Nam
+                  Tại sao khi tiến tới chủ nghĩa cộng sản, dân chủ sẽ ‘tự tiêu vong’?
                 </motion.span>
                 <motion.div 
                   className="h-[1px] w-12 bg-[#111]/20 mx-4"
                   animate={{ width: [48, 60, 48] }}
                   transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
                 />
-                <span className="font-sub text-xs uppercase text-[#111]/70 tracking-wide">VĂN HÓA • ĐẠO ĐỨC • CON NGƯỜI</span>
+                <span className="font-sub text-xs uppercase text-[#111]/70 tracking-wide">Có phải đó là độc tài trá hình không?</span>
               </div>
               
               <motion.div 

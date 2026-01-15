@@ -12,218 +12,187 @@ import {
 import CardSwap, { Card } from '../../components/CardSwap';
 import FlowingMenu from '../../components/FlowingMenu';
 
-// Custom CSS to fix CardSwap layout and FlowingMenu styling
 const cardSwapStyles = `
   .card-swap-wrapper .card-swap-container {
     position: relative !important;
-    bottom: auto !important;
-    right: auto !important;
-    transform: none !important;
-    transform-origin: center center !important;
-    width: auto !important;
-    height: auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    z-index: 10;
   }
-  
+  /* QUAN TRỌNG: Thiết lập nền đặc cho Card để không bị xuyên thấu */
   .card-swap-wrapper .card-swap-container .card {
     border: none !important;
-    background: transparent !important;
+    background: #ffffff !important; /* Đổi từ transparent sang trắng đặc */
+    box-shadow: 8px 8px 0px 0px rgba(153,27,27,1) !important;
+    overflow: hidden;
   }
-
-  /* FlowingMenu custom styling */
-
-  
-  .menu__item {
-    border-bottom: 2px solid #dc2626;
-  }
-  
-  .menu__item:last-child {
-    border-bottom: none;
-  }
-  
+  .menu__item { border-bottom: 2px solid #dc2626; }
+  .menu__item:last-child { border-bottom: none; }
   .menu__item-link {
     color: black !important;
-    font-size: 1.5rem !important;
-    font-weight: 600 !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  }
-  
-  .menu__item-link:hover {
-    color: #dc2626 !important;
-  }
-  
-  .marquee {
-    background: #dc2626 !important;
-  }
-  
-  .marquee span {
-    color: white !important;
+    font-size: 1.2rem !important;
     font-weight: 600 !important;
   }
+  .menu__item-link:hover { color: #dc2626 !important; }
 `;
 
-
+// Cập nhật nội dung chuyên sâu cho các Card
 const topics = [
   {
     id: 1,
-    title: "Xây dựng và phát triển văn hóa, con người",
-    subtitle: "Nền tảng tinh thần, mục tiêu và động lực phát triển đất nước",
+    title: "Bản chất và Đặc trưng của Dân chủ XHCN",
+    subtitle: "Nền dân chủ của đa số nhân dân lao động",
     description:
-      "Văn hóa được xem là nền tảng tinh thần vững chắc của xã hội, vừa là mục tiêu vừa là động lực thúc đẩy phát triển bền vững.",
+      "Dân chủ XHCN là hình thái dân chủ cao nhất trong lịch sử, nơi quyền lực thực sự thuộc về nhân dân dựa trên nền tảng kinh tế công hữu.",
     features: [
-      "Xây dựng con người Việt Nam phát triển toàn diện (Chân - Thiện - Mỹ)",
-      "Phát huy sức mạnh nội sinh của văn hóa trong phát triển bền vững",
-      "Tạo dựng môi trường văn hóa lành mạnh, văn minh, tiến bộ",
-      "Xây dựng văn hóa trong chính trị, kinh tế và đời sống xã hội"
+      "Bản chất chính trị: Quyền lực thuộc về nhân dân lao động",
+      "Bản chất kinh tế: Dựa trên chế độ sở hữu xã hội",
+      "Bản chất tư tưởng: Lấy hệ tư tưởng Mác-Lênin làm cốt lõi",
+      "Là bước đệm tất yếu để tiến tới xã hội tự quản"
     ],
-    color: "from-red-800 to-red-600",
-    link: "/noidung/van-hoa-con-nguoi"
+    color: "from-red-900 to-red-700",
+    link: "/noidung/ban-chat-dan-chu"
   },
   {
     id: 2,
-    title: "Xây dựng đạo đức cách mạng",
-    subtitle: "Đạo đức Hồ Chí Minh – nền tảng, kim chỉ nam cho hành động",
+    title: "Lý luận về sự 'Tự tiêu vong'",
+    subtitle: "Sự kết thúc của dân chủ với tư cách một hình thái nhà nước",
     description:
-      "Xây dựng đạo đức cách mạng hiện nay lấy đạo đức Hồ Chí Minh làm cốt lõi và kim chỉ nam cho mọi hành động.",
+      "Trong lý luận Mác-Lênin, dân chủ là một phạm trù lịch sử gắn liền với nhà nước. Khi giai cấp biến mất, 'vỏ bọc' chính trị của dân chủ không còn cần thiết.",
     features: [
-      "Đạo đức Hồ Chí Minh là nền tảng và kim chỉ nam của đạo đức cách mạng",
-      "Tu dưỡng các phẩm chất: Trung với nước, Hiếu với dân; Cần, Kiệm, Liêm, Chính",
-      "Phát huy tinh thần trách nhiệm, trung thực, chí công vô tư",
-      "Cán bộ, đảng viên phải nêu gương sáng; thanh niên, sinh viên rèn luyện bản lĩnh và lý tưởng"
+      "Dân chủ là hình thức nhà nước (phạm trù giai cấp)",
+      "Khi CSCH đạt tới đỉnh cao: Đối kháng giai cấp bị triệt tiêu",
+      "Nhà nước tự tiêu vong -> Dân chủ chính trị tiêu vong",
+      "Sự chuyển hóa từ 'quản lý con người' sang 'quản lý vật phẩm'"
     ],
-    color: "from-red-700 to-red-500",
-    link: "/noidung/dao-duc-cach-mang"
+    color: "from-red-800 to-red-600",
+    link: "/noidung/ly-thuyet-tieu-vong"
+  },
+  {
+    id: 3,
+    title: "Phản bác quan điểm 'Độc tài trá hình'",
+    subtitle: "Tiêu vong không phải mất tự do, mà là tự do tuyệt đối",
+    description:
+      "Sự tiêu vong của dân chủ không phải là thiết lập độc tài, mà là sự chuyển hóa sang hình thái tự quản xã hội - nơi con người tự giác thực hiện các quy tắc chung.",
+    features: [
+      "Độc tài cần nhà nước cưỡng chế; CSCH không còn nhà nước",
+      "Con người làm chủ xã hội mà không cần 'thước đo' quyền lực",
+      "Thay thế cưỡng bách bằng tính tự giác đạo đức",
+      "Tự do của mỗi người là điều kiện cho tự do của mọi người"
+    ],
+    color: "from-gray-900 to-red-900",
+    link: "/noidung/phan-bac-doc-tai"
   }
 ];
 
-// FlowingMenu items data
 const flowingMenuItems = [
-  {
-    link: "/noidung/van-hoa-con-nguoi",
-    text: "Xây dựng & phát triển văn hóa",
-    image: "/vn.png"
-  },
-  {
-    link: "/noidung/dao-duc-cach-mang",
-    text: "Xây dựng đạo đức cách mạng",
-    image: "/vn.png"
-  }
+  { link: "/noidung/van-hoa-con-nguoi", text: "Bản chất Dân chủ", image: "/vn.png" },
+  { link: "/noidung/dao-duc-cach-mang", text: "Cơ sở Lý luận Tiêu vong", image: "/vn.png" },
+  { link: "/noidung/tu-quan-vs-doc-tai", text: "Tự quản vs Độc tài", image: "/vn.png" }
 ];
 
 export default function NoiDungPage() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: cardSwapStyles }} />
-      <ClientAnimatedSection className="min-h-screen bg-gradient-to-br from-[#f8f7f3] to-white py-16">
+      <ClientAnimatedSection className="min-h-screen bg-[#fcfbf9] py-16">
         <MotionDiv
           className="container mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Main Content Layout - 2 Column Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center min-h-screen">
-            {/* Left Column - Header Content */}
-            <FadeUp className="text-left px-16 pb-32">
-              <MotionH2 className="font-metal text-4xl md:text-5xl text-black mb-6">
-                <span className="text-black font-primary">NỘI DUNG</span>
-                <span className="text-red-900 font-primary"> CHÍNH</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Cột trái: Nội dung dẫn nhập kiến tạo */}
+            <FadeUp className="text-left px-8 lg:px-16">
+              <MotionH2 className="mb-6">
+                <span className="block text-black font-primary text-5xl uppercase">Giải mã sự</span>
+                <span className="block text-red-900 font-primary text-6xl uppercase tracking-tighter">Tiêu vong</span>
               </MotionH2>
-              <MotionP className="font-serif text-lg text-black/70 leading-relaxed mb-8">
-                Khám phá các chủ đề cốt lõi về xây dựng văn hóa, đạo đức và con người Việt Nam theo tư tưởng Hồ Chí Minh.
-                Tìm hiểu quan điểm, mục tiêu và giải pháp để phát triển bền vững, giữ gìn bản sắc dân tộc.
-              </MotionP>
+              
+              <div className="space-y-6">
+                <blockquote className="border-l-4 border-red-900 pl-4 italic text-red-900/80 font-serif text-lg">
+                  "Dân chủ là một hình thái nhà nước, nó sẽ tiêu vong khi nhà nước tiêu vong."
+                </blockquote>
+                
+                <MotionP className="font-serif text-lg text-black/80 leading-relaxed">
+                  Liệu việc mất đi hình thái "Dân chủ" có đồng nghĩa với sự trỗi dậy của Độc tài? 
+                  Chúng ta sẽ cùng phân tích lộ trình từ sự ra đời, phát triển của Dân chủ XHCN 
+                  đến khi nó hoàn thành sứ mệnh lịch sử và nhường chỗ cho sự <strong>Tự quản tuyệt đối</strong> trong Cộng sản chủ nghĩa.
+                </MotionP>
+              </div>
 
-              {/* FlowingMenu */}
-              <div className="h-96">
+              {/* Menu điều hướng dòng chảy */}
+              <div className="h-80 mt-12 border-t border-black/10">
                 <FlowingMenu items={flowingMenuItems} />
               </div>
             </FadeUp>
 
-            {/* Right Column - CardSwap */}
-            <FadeUp delay={0.3} className="hidden lg:block">
-              <div className="card-swap-wrapper w-full h-full flex justify-center items-center">
+            {/* Cột phải: Card nội dung chi tiết */}
+            <FadeUp delay={0.3} className="relative h-[600px] flex items-center justify-center">
+              <div className="card-swap-wrapper w-full max-w-[500px]">
                 <CardSwap
-                  width={500}
-                  height={500}
-                  cardDistance={80}
-                  verticalDistance={100}
-                  delay={4000}
-                  skewAmount={8}
-                  easing="elastic"
-                  onCardClick={(idx) => {
-                    window.location.href = topics[idx].link;
-                  }}
+                  width={450}
+                  height={550}
+                  cardDistance={60}
+                  verticalDistance={80}
+                  delay={5000}
+                  skewAmount={4}
+                  onCardClick={(idx) => console.log(topics[idx].link)}
                 >
-                  {topics.map((topic) => (
-                    <Card
-                      key={topic.id}
-                      customClass="bg-white/90 backdrop-blur-md border-2 border-red-900/20 shadow-xl cursor-pointer"
-                    >
-                      <div className="h-full flex flex-col">
-                        {/* Card Header */}
-                        <div className={`h-2 bg-gradient-to-r ${topic.color}`}></div>
-
-                        <div className="p-6 flex-1 flex flex-col">
-                          {/* Card Number */}
-                          <div className="flex items-center mb-4">
-                            <div className={`w-8 h-8 bg-gradient-to-r ${topic.color} text-white rounded-full flex items-center justify-center font-gothic text-sm font-bold mr-3`}>
-                              {topic.id}
-                            </div>
-                            <div className="h-[1px] w-12 bg-red-900/30"></div>
-                          </div>
-
-                          {/* Card Title */}
-                          <h2 className="font-gothic text-lg font-bold text-black mb-3 leading-tight">
-                            {topic.title}
-                          </h2>
-
-                          {/* Card Subtitle */}
-                          <p className="font-serif text-sm text-red-900 mb-4 italic">
-                            {topic.subtitle}
-                          </p>
-
-                          {/* Card Description */}
-                          <p className="font-serif text-sm text-black/70 mb-6 leading-relaxed flex-1">
-                            {topic.description}
-                          </p>
-
-                          {/* Features List */}
-                          <div className="mb-6">
-                            <h4 className="font-gothic text-xs uppercase tracking-widest text-black/60 mb-3">
-                              Đặc điểm chính
-                            </h4>
-                            <ul className="space-y-2">
-                              {topic.features.map((feature, featureIndex) => (
-                                <li key={featureIndex} className="flex items-start">
-                                  <div className="w-1.5 h-1.5 bg-red-900 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                                  <span className="font-serif text-xs text-black/70">{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Card Footer */}
-                          <div className="pt-4 border-t border-black/10 mt-auto">
-                            <div className="inline-flex items-center text-red-900 hover:text-red-800 transition-colors duration-200">
-                              <span className="font-gothic text-xs uppercase tracking-widest mr-2">
-                                Tìm hiểu thêm
-                              </span>
-                              <span className="text-red-900">→</span>
-                            </div>
-                          </div>
+                {topics.map((topic) => (
+                  <Card
+                    key={topic.id}
+                    // Loại bỏ backdrop-blur vì nó gây tốn tài nguyên và dễ làm lộ nội dung bên dưới nếu opacity thấp
+                    customClass="bg-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(153,27,27,1)] cursor-pointer"
+                  >
+                    {/* Thêm lớp bg-white trực tiếp vào div con để đảm bảo tuyệt đối không xuyên thấu */}
+                    <div className="h-full flex flex-col p-8 bg-white relative z-20">
+                      <div className="flex justify-between items-start mb-6">
+                        <span className="font-primary text-4xl text-red-900 opacity-20">0{topic.id}</span>
+                        <div className={`px-3 py-1 text-[10px] uppercase tracking-widest text-white bg-gradient-to-r ${topic.color}`}>
+                          Lý luận chuyên sâu
                         </div>
                       </div>
-                    </Card>
-                  ))}
+
+                      <h2 className="font-primary text-2xl text-black mb-4 uppercase leading-tight">
+                        {topic.title}
+                      </h2>
+
+                      <p className="font-serif text-sm text-red-900 mb-4 font-bold uppercase tracking-tighter">
+                        {topic.subtitle}
+                      </p>
+
+                      {/* Tăng độ đậm của text mô tả để dễ đọc trên nền trắng */}
+                      <p className="font-serif text-sm text-black mb-8 leading-relaxed">
+                        {topic.description}
+                      </p>
+
+                      <div className="flex-1">
+                        <ul className="space-y-3">
+                          {topic.features.map((feature, fIdx) => (
+                            <li key={fIdx} className="flex items-center text-[11px] font-serif text-black font-medium uppercase">
+                              <span className="w-1 h-1 bg-red-900 mr-2 rounded-full flex-shrink-0"></span>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="pt-6 border-t border-black/10 flex justify-end">
+                        <span className="font-primary text-red-900 flex items-center gap-2 text-sm font-bold">
+                          Xem chi tiết <span className="text-xl">→</span>
+                        </span>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
                 </CardSwap>
               </div>
             </FadeUp>
           </div>
-
-
         </MotionDiv>
       </ClientAnimatedSection>
     </>
