@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 const ChatSpeedDial: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Chào mừng bạn đến với trợ lý AI HCM201! Tôi có thể giúp gì cho bạn hôm nay?' },
+    { role: 'assistant', content: 'Chào mừng bạn đến với trợ lý AI MLN131! Tôi có thể giúp gì cho bạn hôm nay?' },
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const [questionsUsed, setQuestionsUsed] = useState<number>(0);
@@ -89,7 +89,7 @@ const ChatSpeedDial: React.FC = () => {
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Newspaper className="h-5 w-5 text-red-700" />
-                <h3 className="font-cinzel font-bold text-xl">TRỢ LÝ AI HCM201</h3>
+                <h3 className="font-cinzel font-bold text-xl">TRỢ LÝ AI MLN131</h3>
               </div>
               <Button 
                 variant="ghost" 
