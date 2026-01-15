@@ -1,4 +1,6 @@
+'use client';
 import Link from 'next/link';
+import React, { useRef, useState } from 'react';
 import {
   ClientAnimatedSection,
   MotionDiv,
@@ -15,6 +17,32 @@ import { ContinueExploring } from '../../../components/ui/footer-section';
 
 
 const SubHeroSection = () => {
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+  if (videoRef.current) {
+    const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+    setProgress(currentProgress);
+  }
+};
+
+const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  if (videoRef.current) {
+    const seekTime = (videoRef.current.duration / 100) * Number(e.target.value);
+    videoRef.current.currentTime = seekTime;
+    setProgress(Number(e.target.value));
+  }
+};
   return (
     <ClientAnimatedSection className="w-full bg-white/50 pb-5 px-4 border-b relative overflow-hidden">
       <MotionDiv
@@ -44,17 +72,35 @@ const SubHeroSection = () => {
           <FadeUp className="md:col-span-8 relative bg-[#f8f8f8]/80 border-r-2 border-black min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden backdrop-blur-sm">
 
             <video
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              playsInline
-              muted
-              style={{ objectFit: 'cover' }}
-            >
-              <source src="/dang.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            ref={videoRef}
+            className="w-full h-full object-contain bg-black" // Thêm bg-black để phần thừa có màu đen chuyên nghiệp
+            autoPlay
+            loop
+            playsInline
+            muted={isMuted} // Sử dụng state để kiểm soát mute
+            style={{ objectFit: 'contain' }} // Đổi cover thành contain
+          >
+            <source src="/videodcxhcn.mp4" type="video/mp4" />
+          </video>
 
+          <div className="absolute bottom-20 left-6 right-6 z-50 flex flex-col gap-2">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={progress}
+                onChange={handleSeek}
+                className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer accent-[var(--dark-red)]"
+              />
+            </div>
+
+            {/* Nút bấm bật tiếng */}
+              <button 
+                onClick={toggleMute}
+                className="absolute bottom-32 right-6 z-50 bg-black/50 p-2 rounded-full text-white backdrop-blur-md"
+              >
+                {isMuted ? "🔈 Bật âm thanh" : "🔊 Tắt âm thanh"}
+              </button>
             <MotionDiv
               className="absolute top-0 left-0 border-b border-r border-black w-16 h-16 backdrop-blur-sm bg-white/20"
               initial={{ opacity: 0, x: -20 }}
@@ -92,7 +138,7 @@ const SubHeroSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                THÀNH LẬP ĐẢNG CỘNG SẢN VIỆT NAM
+                
               </MotionH2>
               <MotionDiv
                 className="flex items-center"
@@ -101,7 +147,7 @@ const SubHeroSection = () => {
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <div className="h-[1px] w-12 bg-white mr-3"></div>
-                <p className="font-serif italic text-white/90">Sự kiện có ý nghĩa lịch sử vô cùng trọng đại, mở ra trang sử mới của dân tộc Việt Nam</p>
+                <p className="font-serif italic text-white/90">Bản chất chính trị - Bản chất kinh tế - Bản chất tư tưởng - Bản chất văn hóa - Bản chất xã hội</p>
               </MotionDiv>
             </FadeUp>
           </FadeUp>
@@ -122,17 +168,44 @@ const SubHeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                Thành lập ĐẢNG CỘNG SẢN VIỆT NAM
-               <span className="text-red-900">  3-2-1930</span>
+                Đặc trưng của nền
+               <span className="text-red-900"> DÂN CHỦ XÃ HỘI CHỦ NGHĨA</span>
               </MotionH2>
               <MotionP
-                className="font-serif text-black/70 mb-2 leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-              >
-                {"Hội nghị hợp nhất các tổ chức Cộng sản thành lập Đảng Cộng sản Việt Nam đã họp ở bán đảo Cửu Long, thuộc Hồng Kông (Trung Quốc) dưới sự chủ trì của đồng chí Nguyễn Ái Quốc thay mặt cho Quốc tế Cộng sản."}
-              </MotionP>
+              className="font-serif text-black/70 mb-2 leading-relaxed"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              <strong>• Bản chất chính trị:</strong> Quyền lực thực sự thuộc về nhân dân lao động, bảo đảm dân là chủ và dân làm chủ.
+            </MotionP>
+
+            <MotionP
+              className="font-serif text-black/70 mb-2 leading-relaxed"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              <strong>• Bản chất kinh tế:</strong> Dựa trên chế độ công hữu về tư liệu sản xuất, phân phối công bằng theo kết quả lao động.
+            </MotionP>
+
+            <MotionP
+              className="font-serif text-black/70 mb-2 leading-relaxed"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              <strong>• Bản chất tư tưởng – văn hóa – xã hội:</strong> Lấy chủ nghĩa Mác - Lênin làm nền tảng, phát huy tinh hoa dân tộc và sức sáng tạo của nhân dân.
+            </MotionP>
+
+            <MotionP
+              className="font-serif italic text-[var(--dark-red)] mt-4 pt-4 border-t border-black/10 leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+            >
+              "Dân chủ XHCN được thực hiện thông qua nhà nước pháp quyền XHCN và dưới sự lãnh đạo của Đảng Cộng sản, nhằm định hướng để quyền làm chủ thực sự đi vào thực tế đời sống."
+            </MotionP>
 
            
             </FadeUp>
@@ -153,14 +226,14 @@ const SubHeroSection = () => {
                   className="font-primary text-2xl md:text-3xl text-[var(--dark-red)] mb-4"
                   shadowIntensity={0.6}
                 >
-                  NGỌN ĐUỐC CÁCH MẠNG VIỆT NAM
+                  DÂN CHỦ TRONG XÃ HỘI CHỦ NGHĨA
                 </AnimatedText>
 
-                <p className="font-sub text-sm uppercase tracking-widest mb-4"> Hồ Chí Minh</p>
+                <p className="font-sub text-sm uppercase tracking-widest mb-4">"Tự tiêu vong"</p>
                 <div className="h-[1px] w-16 bg-black/30 mx-auto mb-4"></div>
                 <p className="font-serif italic text-black/70 mb-6">
-                  Đoàn kết là một truyền thống cực kỳ quý báu của Đảng và của dân ta. Các đồng chí từ Trung ương đến các chi bộ cần phải giữ gìn sự đoàn kết nhất trí của Đảng như giữ gìn con ngươi của mắt mình.
-                </p>
+                  Dân chủ xã hội chủ nghĩa không mất đi mà sẽ tự tiêu vong khi xã hội đạt đến trình độ cộng sản chủ nghĩa; đó là quá trình chuyển hóa tất yếu từ một hình thái quản lý chính trị có tính cưỡng bách sang một xã hội tự quản hoàn toàn tự giác, nơi tự do của mỗi người là tiền đề cho hạnh phúc của tất cả mọi người.
+                  </p>
                   <Button
                     variant="double"
                     className="font-sub text-sm uppercase tracking-widest"
@@ -184,12 +257,12 @@ const SubHeroSection = () => {
               {/* Main Topics */}
               <div className="space-y-4">
                 <a href="/noidung/van-hoa-con-nguoi" className="block border-l-2 border-[var(--dark-red)] pl-4 hover:text-red-900 transition-colors">
-                  <h5 className="font-sub text-sm font-semibold mb-1">Xây dựng & phát triển văn hóa, con người</h5>
-                  <p className="font-serif text-xs text-black/70">Giá trị nền tảng, mục tiêu, động lực phát triển bền vững</p>
+                  <h5 className="font-sub text-sm font-semibold mb-1">BẢN CHẤT NỀN DÂN CHỦ XHCN</h5>
+                  <p className="font-serif text-xs text-black/70">Nền dân chủ cao hơn về chất, xác lập quyền làm chủ thực sự của nhân dân trên mọi phương diện đời sống xã hội.</p>
                 </a>
                 <a href="/noidung/dao-duc-cach-mang" className="block border-l-2 border-[var(--dark-red)] pl-4 hover:text-red-900 transition-colors">
-                  <h5 className="font-sub text-sm font-semibold mb-1">Xây dựng đạo đức cách mạng</h5>
-                  <p className="font-serif text-xs text-black/70">Gương mẫu, liêm khiết; bồi dưỡng phẩm chất con người Việt Nam</p>
+                  <h5 className="font-sub text-sm font-semibold mb-1">CƠ SỞ LÝ LUẬN VỀ SỰ TIÊU VONG</h5>
+                  <p className="font-serif text-xs text-black/70">"Dân chủ cũng có nghĩa là nhà nước tiêu vong" - V.I. Lênin</p>
                 </a>
               </div>
 
